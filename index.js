@@ -25,6 +25,7 @@ let persons = [
     number: "39-23-6423122",
   },
 ];
+app.use(express.static("dist"));
 app.use(cors());
 
 app.use(express.json());
@@ -114,8 +115,6 @@ function info() {
     date: now.toLocaleString("es-ES", { timeZoneName: "short" }),
   };
 }
-
-app.use(express.static("build"));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
